@@ -8,6 +8,13 @@ spring:
     url: jdbc:mysql://101.201.142.43:3306/tensquare_article?characterEncoding=utf-8
     username: root
     password: root
+  data:
+    mongodb:
+      database: commentdb
+      host: 101.201.142.43
+  redis:
+    port: 6379
+    host: 101.201.142.43
 
 # Mybatis-Plus 配置
 mybatis-plus:
