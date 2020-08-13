@@ -1,22 +1,18 @@
 server:
-  #服务端口
-  port: 9001
+  port: 9008
 spring:
   application:
-    #指定服务名
-    name: how-base
-  #数据源配置
-  datasource:
+    name: how-user
+  datasource: # 数据库连接四大属性
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://101.201.142.43:3306/how_base?characterEncoding=utf-8
+    url: jdbc:mysql://101.201.142.43:3306/how_user?characterEncoding=utf-8
     username: root
     password: root
-
 # Mybatis-Plus 配置
 mybatis-plus:
   #  mapper-locations: classpath:/mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.liushao.base.pojo
+  typeAliasesPackage: com.liushao.user.pojo
   global-config:
     id-type: 1  #0:数据库ID自增   1:用户输入id
     db-column-underline: false

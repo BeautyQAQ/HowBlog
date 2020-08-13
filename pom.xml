@@ -12,6 +12,7 @@
         <module>how_common</module>
         <module>how_article</module>
         <module>how_base</module>
+        <module>how_user</module>
     </modules>
 
     <parent>
