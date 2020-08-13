@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * @author huangshen
+ * //Mapper扫描注解
  */
 @SpringBootApplication
-//Mapper扫描注解
 @MapperScan("com.liushao.article.dao")
 public class ArticleApplication {
     public static void main(String[] args) {

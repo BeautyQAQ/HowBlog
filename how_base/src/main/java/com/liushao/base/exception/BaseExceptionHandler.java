@@ -1,4 +1,4 @@
-package com.liushao.base.common;
+package com.liushao.base.exception;
 
 import com.liushao.entity.Result;
 import com.liushao.entity.StatusCode;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * 全局异常处理类(通知类)
  * // @ControllerAdvice
  * 组合注解，相当于@ControllerAdvice+@ResponseBody
+ * @author SZ-UserBDG7
  */
 @RestControllerAdvice
 public class BaseExceptionHandler {

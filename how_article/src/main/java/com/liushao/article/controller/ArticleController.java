@@ -16,7 +16,7 @@ import java.util.Map;
  * @author huangshen
  */
 @RestController
-@RequestMapping("/article")
+@RequestMapping("article")
 @CrossOrigin
 public class ArticleController {
 
@@ -29,14 +29,14 @@ public class ArticleController {
         return new Result(true, StatusCode.OK, "查询成功", list);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Result findById(@PathVariable String id) {
-        Article article = articleService.findById(id);
+    @RequestMapping(value = "{articleId}", method = RequestMethod.GET)
+    public Result findById(@PathVariable String articleId) {
+        Article article = articleService.findById(articleId);
         return new Result(true, StatusCode.OK, "查询成功", article);
     }
 
     /**
-     * 新增标签数据接口
+     * 新增文章数据接口
      */
     @RequestMapping(method = RequestMethod.POST)
     public Result add(@RequestBody Article article) {
@@ -45,11 +45,11 @@ public class ArticleController {
     }
 
     /**
-     * 修改标签数据接口
+     * 修改文章数据接口
      */
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Result update(@PathVariable String id, @RequestBody Article article) {
-        article.setId(id);
+    @RequestMapping(value = "{articleId}", method = RequestMethod.PUT)
+    public Result update(@PathVariable String articleId, @RequestBody Article article) {
+        article.setId(articleId);
         articleService.update(article);
         return new Result(true, StatusCode.OK, "修改成功");
     }
@@ -57,13 +57,16 @@ public class ArticleController {
     /**
      * 删除文章数据接口
      */
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-    public Result delete(@PathVariable String id) {
-        articleService.delete(id);
+    @RequestMapping(value = "{articleId}", method = RequestMethod.DELETE)
+    public Result delete(@PathVariable String articleId) {
+        articleService.delete(articleId);
         return new Result(true, StatusCode.OK, "删除成功");
     }
 
-    @RequestMapping(value="/search/{page}/{size}", method = RequestMethod.POST)
+    /**
+     * 条件查询
+     */
+    @RequestMapping(value="search/{page}/{size}", method = RequestMethod.POST)
     public Result search(@RequestBody Map map, @PathVariable int page, @PathVariable int size) {
         Page page1 = articleService.search(map, page, size);
         return new Result(true, StatusCode.OK, "查询成功", new PageResult(page1.getTotal(), page1.getRecords()));
